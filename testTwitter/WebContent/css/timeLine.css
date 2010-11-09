@@ -1,0 +1,122 @@
+#timeLine 
+{
+/*	float: left;*/
+	border: 1px solid lightblue;
+	width: 600px;
+	padding: 10px 10px;
+	margin-top: 50px;
+	font-family : sans-serif;		/*changed*/
+}
+
+#timeLine ul
+{
+	width: 580px;
+	min-height: 100px;
+	max-height: 200px;
+	padding-left: 0;
+	list-style-type: none;
+	border-bottom: 1px solid lightblue;
+}
+
+#timeLine img
+{
+	float: left;
+	width: 50px;
+}
+
+#timeLine .mine img
+{
+	float: right;
+}
+
+#timeLine li
+{
+	margin: 0 0 20px 80px;
+}
+
+#timeLine .mine li
+{
+	margin: 0 80px 20px 0;
+}
+
+
+#timeLine .content_date
+{
+	float: right;
+	color: gray;
+	font-size: 15px;
+}
+
+#timeLine .mine .content_date
+{
+	float: none;
+}
+
+#timeLine a
+{
+	text-decoration: none;
+}
+
+#timeLine .content_userID a:link, .content_userID a:visited
+{
+	color: lightblue;
+}
+
+
+#timeLine .content_userID a:hover 
+{
+	font-weight: bold;
+}
+
+#timeLine .mine .content_userID
+{
+	float: right;
+}
+
+#timeLine .content_retweet /*changed*/
+{
+	float: right;
+}
+
+#timeLine .content_retweet  a:link, .content_retweet a:visited  /*changed*/
+{
+	color: gray;
+	font-size: 11px;
+}
+
+#timeLine .content_via, .content_via a:link, .content_via a:visited  /*changed*/
+{
+	color: gray;
+	font-size: 11px;
+}
+
+#timeLine .mine .content_via	/*changed*/
+{
+	float: right;
+}
+
+#timeLine .mine .content_delete a:link, .mine .content_delete a:visited /*changed*/
+{
+	color: gray;
+	font-size: 11px;
+}
+
+#timeLine .content_via a:hover, .content_retweet a:hover, .mine .content_delete a:hover		/*changed*/
+{
+	font-weight: bold;
+}
+
+
+/*changed*/
+#home_footer
+{
+	text-align: center;
+}
+
+#home_next
+{
+	font-size: 30px;
+	font-weight: bold;
+	color: lightblue;
+}
+

@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+
+	#menu_bar
+	{
+		width: 600px; /*timeline출력시 너비와 같음*/
+		padding-top: 10px;
+		padding-bottom: 10px;
+		text-align: center;
+	/*	border: 1px solid blue;*/
+	}
+	
+	#menu_bar span
+	{
+		padding: 0px 30px;	/*0px top, bottom에 적용되 30px는 left, right에 적용된다*/
+		margin-left: 10px;	/*firefox에서는 margin값이 각각 적용되어 <sapn>간의 사이에 각 margin이 적용되 20px의 공간이 생김*/
+		margin-right: 10px;
+		color: lightblue;	/*글씨 색상*/
+		font-weight: bold;
+		font-size: 20px;
+	}
+	
+	#menu_bar span a
+	{
+		text-decoration: none;
+	}
+	
+	#menu_bar span  a:link, 	#menu_bar span a:visited
+	{
+		color: lightblue;
+	}

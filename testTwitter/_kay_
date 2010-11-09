@@ -1,0 +1,12 @@
+alert("이거나와");
+			<%
+				System.out.println("이건돼?");
+				String next_str = instance.getNextTimeLine();
+				System.out.println(next_str);
+			%>
+			
+//			var str = "<%=instance.getNextTimeLine()%>";
+//			var content = document.getElementById("timeLine");
+//			var content = document.getElementById("new_timeline");
+//			content.innerHTML += str;
+//			content.innerHTML += "<div id=\"new_timeline\"></div>"; */

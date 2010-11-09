@@ -1,0 +1,110 @@
+@CHARSET "EUC-KR";
+
+#main
+{
+	width: 600px;
+	border: 1px solid lightblue;
+	padding: 10px 10px;
+}
+
+#main .sender_list
+{
+	list-style-type: none;
+	padding: 5px 5px;
+	height: 50px;
+	border: 1px solid lightblue;
+}
+/*
+#main .ul_over
+{
+	background: lightblue url(../img/reverse.gif) no-repeat 80% 70%;
+}
+*/
+
+#main .sender_list li
+{
+/*margin-left: 70px;*/
+	margin-top: 15px; 
+}
+
+#main .sender_img
+{
+	float: left;
+}
+
+#main .sender_name
+{
+	margin-left: 20px;
+	font-size: 20px;
+	font-weight: bold;
+	color: lightblue;
+}
+
+#main .count
+{
+	float: right;
+	margin-right: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	color: gray;
+}
+/*
+#main .over_name
+{
+	margin-left: 100px;
+	margin-top: 0px;
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+}*/
+
+#main .div_dm
+{
+	border: 1px solid lightblue;
+	display: none;
+}
+
+#main .dm_list
+{
+	list-style-type: none;
+	margin: 10px 10px;
+	padding: 5px 5px;
+	min-height: 30px;
+	border-bottom: 1px solid lightblue; 
+	display: none;
+}
+
+#main .dm_list li
+{
+	margin: 5px 5px;
+}
+
+#main .dm_list .dm_date
+{
+	text-align: right;
+	color: gray;
+	font-size: 15px;
+}
+
+#main .dm_list .dm_delete
+{
+	text-align: right;
+}
+
+#main .dm_list .dm_delete a 
+{
+	text-decoration: none;
+}
+
+#main .dm_list .dm_delete a:link, .dm_list .dm_delete a:visited
+{
+	color: gray;
+	font-size: 11px;
+}
+
+#main .dm_list .dm_delete a:hover
+{
+	font-weight: bold;
+}
+
+
