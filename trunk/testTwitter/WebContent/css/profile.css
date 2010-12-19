@@ -1,13 +1,18 @@
 @CHARSET "UTF-8";
 			
-#userTimeline
+#main
+{
+	width: 815px;
+}
+
+#main #userTimeline
 {
 	width: 600px;
 	padding: 10px 10px;
 	font-family : sans-serif;		
 }
 
-#userTimeline .user_info
+#main #userTimeline .user_info
 {
 	list-style-type: none;
 	padding: 10px 10px;
@@ -15,7 +20,7 @@
 /*	border: 1px solid lightblue;*/
 }
 
-#userTimeline .user_info img
+#main #userTimeline .user_info img
 {
 	float: left;
 	margin-left: 30px;
@@ -23,7 +28,7 @@
 	height: 70px;
 }
 
-#userTimeline .user_info .user_screen
+#main #userTimeline .user_info .user_screen
 {
 	margin-right: 100px;
 	text-align: right;
@@ -32,7 +37,7 @@
 	color: lightblue;
 }
 
-#userTimeline .user_info .user_name
+#main #userTimeline .user_info .user_name
 {
 	margin-right: 70px;
 	text-align: right;
@@ -41,58 +46,58 @@
 	color: lightblue;
 }
 			
-#userTimeline #user_timeline
+#main #userTimeline #user_timeline
 {
 	border: 1px solid lightblue;
 	padding: 10px 10px;
 }
 
-#userTimeline #user_timeline .user_list
+#main #userTimeline #user_timeline .user_list
 {
 	list-style-type: none;
 	border-bottom: 1px solid lightblue;
 	padding: 10px 10px;
 }
 
-#userTimeline #user_timeline li
+#main #userTimeline #user_timeline li
 {
 	margin-bottom: 10px;
 }
 
-#userTimeline #user_timeline .content_date
+#main #userTimeline #user_timeline .content_date
 {
 	text-align: right;
 	color: gray;
 	font-size: 15px;
 }
 
-#userTimeline #user_timeline a
+#main #userTimeline #user_timeline a
 {
 	text-decoration: none;
 }
 
-#userTimeline #user_timeline .content_delete
+#main #userTimeline #user_timeline .content_delete
 {
 	text-align: right;
 }
 
-#userTimeline #user_timeline .content_delete a:link, #user_timeline .content_delete a:visited
+#main #userTimeline #user_timeline .content_delete a:link, #user_timeline .content_delete a:visited
 {
 	color: gray;
 	font-size: 11px;
 }
 
-#userTimeline #user_timeline .content_delete a:hover
+#main #userTimeline #user_timeline .content_delete a:hover
 {
 	font-weight: bold;
 }
 
-#userTimeline #user_timeline #user_footer
+#main #userTimeline #user_timeline #user_footer
 {
 	text-align: center;
 }
 
-#userTimeline #user_timeline #user_footer a:link, #user_timeline #user_footer a:visited
+#main #userTimeline #user_timeline #user_footer a:link, #user_timeline #user_footer a:visited
 {
 	font-size: 30px;
 	font-weight: bold;

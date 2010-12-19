@@ -4,6 +4,7 @@ import twitter4j.Twitter;
 import twitter4j.TwitterException;
 
 public class UpdateStatus {
+
 	private String status;
 	private Twitter twitter;
 	

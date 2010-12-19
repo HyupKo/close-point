@@ -1,3 +1,4 @@
+<%@page import="twitter4j.User"%>
 <%@page import="Test.TimeLine.HomeTimeline"%>
 <%@page import="java.util.Enumeration"%>
 <%@page import="twitter4j.Paging"%>
@@ -21,9 +22,13 @@
 	Twitter twitter = new TwitterFactory().getOAuthAuthorizedhome_instance(CONSUMER_KEY, CONSUMER_SECRET, accessToken);
 	final String screenName = twitter.getScreenName();
 */
+
 	Twitter twitter = (Twitter)session.getAttribute("_twitter") ;
-	final String screenName = twitter.getScreenName();
-	
+	User user_info = (User)session.getAttribute("_user");
+	String screenName = user_info.getScreenName();
+
+//	final String screenName = twitter.getScreenName();	twitter객체 limit을 줄이기 위해 기본정보를 session에 저장함.
+
 	HomeTimeline home_instance = new HomeTimeline(twitter);
 	
 	int isNext = 0;
@@ -49,7 +54,9 @@
 			{
 				hidden_value = request.getParameter("hidden_retweet");
 				System.out.println("hidden_retweet: "+hidden_value);
-				twitter.retweetStatus( Long.parseLong(hidden_value) );
+			//	twitter.retweetStatus( Long.parseLong(hidden_value) );
+				long temp = Long.parseLong(hidden_value);
+				twitter.retweetStatus( temp );
 				
 			}else if( hidden_str.equals("hidden_kind") )
 			{
@@ -101,119 +108,44 @@
 		@import "css/navigationBar.css";
 		@import "css/timeLine.css";
 		@import "css/updateStatus.css";
+		@import "css/sideBar.css";
 	</style>
-	
+	<script src="js/DaumMap_v2.js" language="JavaScript"></script>
+	<script type="text/javascript" src="js/timeline.js"></script>
 	<script type="text/javascript">	 
-//	window.onload = updatePage;
-
-	var doc_ele = document.documentElement;
-	var doc_body = document.body;
-	
-	function updatePage()
-	{
-		var text = document.getElementById('content_text');
-		text.value = "";
+		window.onload = onLoad;
 		
-		var getValue = <%=isNext%>;
-		var scroll_value = new Array();
-		scroll_value[1] = <%=home_instance.home_scroll[1]%>;
-//		document.body.scrollTop = scroll_value[1];			// chrome에서 가능.
-//		alert(document.body.scrollTop);
-		document.documentElement.scrollTop = scroll_value[1];		// firefox에서 가능.
-//		onLoad();
-	}
-	
-	function CountNum()
-	{
-		var text = document.getElementById('content_text');
-		var output = document.getElementById('content_length');
-		var div_button = document.getElementById('content_button');
-		var text_length = text.value.length;
-		
-		output.innerHTML = 140-text_length;
-		
-		if( text_length>140 )
+		function onLoad()
 		{
-			div_button.innerHTML = "<span  id=\"button_enable\">tweet</span>";
-		}else
-		{
-			div_button.innerHTML = "<span  id=\"button_able\"><a href=\"#\" onclick=\"actionSubmit()\">tweet</a></span>";
+			var text = document.getElementById('content_text');
+			text.value = "";
+			
+			var getValue = <%=isNext%>;
+			if( getValue != 0)
+			{
+				var scroll_value = new Array();
+				scroll_value[1] = <%=home_instance.home_scroll[1]%>;
+				document.body.scrollTop = scroll_value[1];
+				document.documentElement.scrollTop =scroll_value[1];
+			}
 		}
-	}
-	
-	function UpdateStatus()
-	{
-		var status = document.getElementById('content_text').value;
 		
-	}
-	
-	function actionSubmit()
-	{
-		var value = document.getElementById("content_text").value;
-		document.updateForm.submit();
-	}	
-	var now = {};
-	
-	var getNowScroll= function(){
-									now.X = document.all ? (!doc_ele.scrollLeft ? doc_body.scrollLeft : doc_ele.scrollLeft) : (window.pageXOffset ? window.pageXOffset : window.scrollX);
-									now.Y = document.all ? (!doc_ele.scrollTop ? doc_body.scrollTop : doc_ele.scrollTop) : (window.pageYOffset ? window.pageYOffset : window.scrollY);
-
-									return now;
-								}
-	
-	function onLoad()
-	{
-		var getValue = <%=isNext%>;
-		var scroll_value = new Array();
-		scroll_value[1] = <%=home_instance.home_scroll[1]%>;
-//		document.body.scrollTop = scroll_value[1];			// chrome에서 가능.
-//		alert(document.body.scrollTop);
-		document.documentElement.scrollTop = scroll_value[1];		// firefox에서 가능.
-	}
-	
-	function onClickDelete(id)	//changed
-	{
-		var name = "form_"+id;
-		var form = document.getElementById(name);
-		form.innerHTML+="<input type=\"hidden\" name=\"hidden_delete\" value=\""+id+"\"/>";
-		form.submit();
-	}
-
-	function onClickRetweet(id)
-	{
-		var name = "form_"+id;
-		var form = document.getElementById(name);
-		form.innerHTML+="<input type=\"hidden\" name=\"hidden_retweet\" value=\""+id+"\"/>";
-		
-	}
-	
-	function goNext(next_page)		//next homeTimeLine
-	{
-		var scroll = getNowScroll();
-//		var go_next = document.form_home_next;
-		var go_next = document.getElementById("form_home_next");
-		go_next.innerHTML += "<input type=\"hidden\" name=\"hidden_kind\" value=\"home\"/>";
-		go_next.innerHTML += "<input type=\"hidden\" name=\"hidden_page\" value=\""+next_page+"\"/>";
-		go_next.innerHTML += "<input type=\"hidden\" name=\"hidden_scrollX\" value=\""+scroll.X+"\"/>";
-		go_next.innerHTML += "<input type=\"hidden\" name=\"hidden_scrollY\" value=\""+scroll.Y+"\"/>";
-		
-		go_next.submit();
-	}
 	</script>
 
 </head>
-<body onload="updatePage()">
-	<div id="header">
-		<jsp:include page="navigationBar.jsp"/>
-	</div>
-	<div id="subHeader">
-		<jsp:include page="updateStatus.jsp"/>
-	</div>
-	<div id="timeLine">
-	<%
+<body>
+	<jsp:include page="navigationBar.jsp"/>
+	<div id="main">
+		<div id="main_top">
+			<jsp:include page="sideBar.jsp"></jsp:include>
+			<jsp:include page="updateStatus.jsp"/>
+		</div>
+			
+		<div id="timeLine">
+		<%
 		
 		List<Status> list = home_instance.HomeTimeLine();
-	
+			
 		System.out.println("list size: "+list.size());
 		for( Status status :  list )
 		{
@@ -234,7 +166,7 @@
 				
 				out.print("<li><form method=\"post\" id=\"form_"+status.getId()+"\" action=\"#\"><span class=\"content_retweet\">"); 
 				out.print("<a href=\"#\" id=\""+status.getId()+"\" onclick=\"onClickRetweet(id)\">retweet</a></span></form>");
-				out.print("<span class=\"content_via\">via&nbsp;&nbsp;"+status.getSource()+"</span></li></ul>");	
+				out.print("<span class=\"content_via\">via&nbsp;&nbsp;"+status.getSource()+"</span></li></ul>");
 			}else
 			{
 				out.print("<ul class=\"mine\">");
@@ -250,17 +182,16 @@
 			}
 		}
 
-	%>
-	
-		<div id="home_footer">
-			<%
-				int home_page = home_instance.getPublicPage("home")+1;
-				out.print("<form method=\"post\" id=\"form_home_next\" action=\"#\"><span id=\"span_next\">");
-				out.print("<a  href=\"#\" id=\"home_next\" onclick=\"goNext("+home_page+")\")>NEXT</a></span></form>");
-				//현재 출력된 timeline이후의 timeline을 출력하
-			%>
-		</div>
-	
+	%>		
+			<div id="home_footer">
+				<%
+					int home_page = home_instance.getPublicPage("home")+1;
+					out.print("<form method=\"post\" id=\"form_home_next\" action=\"#\"><span id=\"span_next\">");
+					out.print("<a  href=\"#\" id=\"home_next\" onclick=\"goNext("+home_page+")\")>NEXT</a></span></form>");
+					//현재 출력된 timeline이후의 timeline을 출력하
+				%>
+			</div>	
+		</div>	
 	</div>
 </body>
 </html>

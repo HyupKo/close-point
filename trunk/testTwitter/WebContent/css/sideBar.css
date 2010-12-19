@@ -1,0 +1,71 @@
+@CHARSET "UTF-8";
+
+#subNavigation
+{
+	float: right;
+	width: 170px;
+	margin-right: 7px;
+	padding: 0px 0px;
+	list-style-type: none;
+	border: 1px solid blue;
+}
+
+#subNavigation li
+{
+	text-align: right;
+	color: lightblue;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 0px 0px;
+	margin-bottom: 5px;
+}
+/*
+#subNavigation li .label
+{
+	color: lightblue;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#subNavigation li .user_info
+{
+	float: right;
+	color: lightblue;
+	font-size: 15px;
+	font-weight: bold;
+}*/
+
+#subNavigation fieldset
+{
+	border: 1px solid lightblue;
+}
+
+#subNavigation fieldset legend
+{
+	color: lightblue;
+}
+
+#subNavigation li div
+{
+	text-align: center;
+}
+
+#subNavigation li div .oauth
+{
+	color: white;
+	font-size: 15px;
+	font-weight: bold;
+	background: lightblue;
+}
+
+
+
+
+/*
+
+out.print("<li><span class=\"label\">이름</span><span class=\"user_info\">"+user.get("USER_NAME")+"</span></li>");
+			out.print("<li><span class=\"label\">이메일</span><span class=\"user_info\">"+user.get("USER_EMAIL")+"</span></li>");
+			out.print("<li><span class=\"label\">트위터아이디</span><span class=\"user_info\">"+user.get("USER_TWITTER_ID")+"</span></li>");
+			out.print("<li><span class=\"oauth\">트위터OAuth</span></li>");
+
+*/

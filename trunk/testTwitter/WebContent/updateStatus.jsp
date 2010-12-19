@@ -51,16 +51,48 @@
 */
 		
 %>
+
+<Script type="text/javascript" src="http://apis.daum.net/maps/maps2.js?apikey=9ff735caefceafcda92cfb983847b997517e07ec"></script>
 	<div id="content">
 		<div>
 		 	<span id="content_char">What's happening?</span> 
 			<span id="content_length">140</span>
 		</div>
 		
-		<div>
+		<div id="updateDiv">
 			<form method="post" name="updateForm">
 				<textarea id="content_text" name="text" rows="4" cols="35" onkeyup="CountNum()"></textarea>
+				<input type="hidden" name="POINT_X" id="point_x"/>
+				<input type="hidden" name="POINT_Y" id="point_y"/>
+				<input type="hidden" name="PANO_ID" id="pano_id"/>
+				<input type="hidden" name="PAN" id="pan"/>
+				<input type="hidden" name="TILT" id="tilt"/>
 			</form> 
+		</div>
+				
+		<!-- 		<span id="map_able" onclick="insert_Daum_Map()">Insert Map</span>    -->
+		<div id="content_map_text">			
+			<div id="top_msg">
+				<span id="map_able">Insert Map</span>
+				<span id="search_add">주소&nbsp;&nbsp;:&nbsp;&nbsp;
+					<input type="text"name="address" id="address"/>
+					<input type="button" value="검색" onclick="select_pos();"/>
+				</span>
+			</div>
+			<div id="sub_msg">
+			</div>
+			
+<!-- 			<font size=3 color="red">※주소를 "동"이름으로 검색하세요.</font>		-->
+				
+			
+			<div id="map">
+			</div>
+			
+			<div id="road">
+			</div>
+		</div>
+		
+		<div id="content_map">
 		</div>
 		
 		<div id="content_button">

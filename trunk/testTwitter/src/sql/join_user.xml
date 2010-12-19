@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="users">
+	<statement id="insert_user" parameterClass="java.util.HashMap">
+		INSERT INTO USER
+		(USER_EMAIL, USER_PASSWORD, USER_NAME, USER_TWITTER_ID)
+		VALUES 
+		(#USER_EMAIL#, #USER_PASSWORD#, #USER_NAME#, #USER_TWITTER_ID#)
+	</statement>
+	<statement id="check_Email" parameterClass="String" resultClass="String">
+		SELECT USER_EMAIL
+		FROM USER
+		WHERE USER_EMAIL = #USER_EMAIL#
+	</statement>
+	<statement id="check_twitID" parameterClass="String" resultClass="String">
+		SELECT USER_TWITTER_ID
+		FROM USER
+		WHERE USER_TWITTER_ID = #USER_TWITTER_ID#
+	</statement>
+	<statement id="login" parameterClass="String" resultClass="String">
+		SELECT USER_PASSWORD
+		FROM USER
+		WHERE USER_EMAIL = #USER_EMAIL#
+	</statement>
+	<statement id="getUserInfo" parameterClass="String" resultClass="comm.util.HashMapTwit">
+		SELECT *
+		FROM USER
+		WHERE USER_EMAIL = #USER_EMAIL#
+	</statement>
+</sqlMap>

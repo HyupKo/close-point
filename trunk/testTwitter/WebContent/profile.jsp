@@ -3,15 +3,15 @@
 <%@page import="java.util.List"%>
 <%@page import="Test.TimeLine.UserTimeline"%>
 <%@page import="twitter4j.User"%>
-<%@page import="Test.TimeLine.timeLine"%>
 <%@page import="twitter4j.Twitter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	Twitter twitter = (Twitter)session.getAttribute("_twitter");
 	UserTimeline user_instance = new UserTimeline(twitter);
-	User user_info = twitter.showUser( user_instance.getPublicName() );
-	
+//	User user_info = twitter.showUser( user_instance.getPublicName() );
+	User user_info = (User)session.getAttribute("_user");	
+
 	Enumeration em = request.getParameterNames();
 	String hidden_str;
 	String hidden_value;
@@ -19,6 +19,7 @@
 	int index = 1;		//test
 	if( em.hasMoreElements() )
 	{
+		System.out.println("[profile] parameter");
 		while( em.hasMoreElements() )
 		{
 			hidden_str = em.nextElement().toString();
@@ -54,7 +55,8 @@
 				break;
 			}
 		}
-	}
+	}else
+		System.out.println("[profile] no parameter");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -63,22 +65,11 @@
 	<style type="text/css">
 		@import "css/navigationBar.css";
 		@import "css/profile.css";
+		@import "css/sideBar.css";
 	</style>
+	<script type="text/javascript" src="js/profile.js"></script>
 	<script type="text/javascript">
-		
 		window.onload = onLoad;
-	
-		var now = {};
-		var doc_ele = document.documentElement;
-		var doc_body = document.body;
-		
-		var getNowScroll= function(){
-										now.X = document.all ? (!doc_ele.scrollLeft ? doc_body.scrollLeft : doc_ele.scrollLeft) : (window.pageXOffset ? window.pageXOffset : window.scrollX);
-										now.Y = document.all ? (!doc_ele.scrollTop ? doc_body.scrollTop : doc_ele.scrollTop) : (window.pageYOffset ? window.pageYOffset : window.scrollY);
-	
-										return now;
-									}
-		
 		function onLoad()
 		{		
 			var getValue = <%=isNext%>;
@@ -90,61 +81,44 @@
 				document.documentElement.scrollTop =scroll_value[1];
 			}
 		}
-	
-		function goNextUser(next_page)
-		{
-			var scroll = getNowScroll();
-			var form_next = document.getElementById("form_user_next");
-			form_next.innerHTML += "<input type=\"hidden\" name=\"hidden_kind\" value=\"user\"/>";
-			form_next.innerHTML += "<input type=\"hidden\" name=\"hidden_page\" value=\""+next_page+"\"/>";
-			form_next.innerHTML += "<input type=\"hidden\" name=\"hidden_scrollX\" value=\""+scroll.X+"\"/>";
-			form_next.innerHTML += "<input type=\"hidden\" name=\"hidden_scrollY\" value=\""+scroll.Y+"\"/>";
-			form_next.submit();
-		}
-		
-		function deleteStatus(id)
-		{
-			var name = "form_"+id;
-			var form = document.getElementById(name);
-			form.innerHTML += "<input type=\"hidden\" name = \"hidden_delete\" value=\""+id+"\"/>";
-			form.submit();
-		}
-		
-	
 	</script>
 </head>
 <body>
 	<div id="header">
 		<jsp:include page="navigationBar.jsp"></jsp:include>
 	</div>
-	<div id="userTimeline">
-		<%
-			out.print("<ul class=\"user_info\">");
-			out.print("<img src=\""+user_info.getProfileImageURL()+"\">");
-			out.print("<li class=\"user_screen\">"+user_info.getScreenName()+"</li>");
-			out.print("<li class=\"user_name\">"+user_info.getName()+"</li>");
-			out.print("</ul>");
-			
-			List<Status> user_list = user_instance.getMyTimeLine();
-			
-			out.print("<div id=\"user_timeline\"");
-			
-			for( Status status : user_list )
-			{
-				out.print("<ul class=\"user_list\">");
-				out.print("<li class=\"content_date\">"+status.getCreatedAt()+"</span></li>");
-				out.print("<li class=\"content_text\">"+status.getText()+"</li>");
-				out.print("<li class=\"content_delete\"><form method=\"post\" id=\"form_"+status.getId()+"\" action=\"#\"><a href=\"#\" onclick=\"deleteStatus("+status.getId()+")\">delete</a></li>");
+	<div id="main">
+		<jsp:include page="sideBar.jsp"></jsp:include>
+		<div id="userTimeline">
+			<%
+				out.print("<ul class=\"user_info\">");
+				out.print("<img src=\""+user_info.getProfileImageURL()+"\">");
+				out.print("<li class=\"user_screen\">"+user_info.getScreenName()+"</li>");
+				out.print("<li class=\"user_name\">"+user_info.getName()+"</li>");
 				out.print("</ul>");
-			}
-			
-			out.print("<div id=\"user_footer\">");
-			int user_page = user_instance.getPublicPage()+1;
-			out.print("<form method=\"post\" id=\"form_user_next\" action=\"#\"><span id=\"span_next\">");
-			out.print("<a  href=\"#\" id=\"user_next\" onclick=\"goNextUser("+user_page+")\")>NEXT</a></span></form>");
-			//현재 출력된 timeline이후의 timeline을 출력함 
-			out.print("</div></div>");
-		%>
+				
+				List<Status> user_list = user_instance.getMyTimeLine();
+				
+				out.print("<div id=\"user_timeline\"");
+				
+				for( Status status : user_list )
+				{
+					out.print("<ul class=\"user_list\">");
+					out.print("<li class=\"content_date\">"+status.getCreatedAt()+"</span></li>");
+					out.print("<li class=\"content_text\">"+status.getText()+"</li>");
+					out.print("<li class=\"content_delete\"><form method=\"post\" id=\"form_"+status.getId()+"\" action=\"#\"><a href=\"#\" onclick=\"deleteStatus("+status.getId()+")\">delete</a></form></li>");
+					out.print("</ul>");
+				}
+				
+				out.print("<div id=\"user_footer\">");
+				int user_page = user_instance.getPublicPage()+1;
+				out.print("<form method=\"post\" id=\"form_user_next\" action=\"#\"><span id=\"span_next\">");
+				out.print("<a href=\"#\"  onclick=\"goNextUser("+user_page+")\">NEXT</a></span></form>");
+				//현재 출력된 timeline이후의 timeline을 출력함 
+				out.print("</div></div>");
+			%>
+		</div>
 	</div>
+	<div id="test"></div>
 </body>
 </html>

@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+#main
+{
+	width: 815px;
+	border: 1px solid green;
+}
+
+#main #articles
+{
+	width: 600px;
+	height: 700px;	/*test*/
+	border: 1px solid black;
+}
+

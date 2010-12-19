@@ -2,12 +2,17 @@
 
 #main
 {
+	width: 815px;
+}
+
+#messages
+{
 	width: 600px;
 	border: 1px solid lightblue;
 	padding: 10px 10px;
 }
 
-#main .sender_list
+#messages .sender_list
 {
 	list-style-type: none;
 	padding: 5px 5px;
@@ -15,24 +20,24 @@
 	border: 1px solid lightblue;
 }
 /*
-#main .ul_over
+#messages .ul_over
 {
 	background: lightblue url(../img/reverse.gif) no-repeat 80% 70%;
 }
 */
 
-#main .sender_list li
+#messages .sender_list li
 {
 /*margin-left: 70px;*/
 	margin-top: 15px; 
 }
 
-#main .sender_img
+#messages .sender_img
 {
 	float: left;
 }
 
-#main .sender_name
+#messages .sender_name
 {
 	margin-left: 20px;
 	font-size: 20px;
@@ -40,7 +45,7 @@
 	color: lightblue;
 }
 
-#main .count
+#messages .count
 {
 	float: right;
 	margin-right: 10px;
@@ -49,7 +54,7 @@
 	color: gray;
 }
 /*
-#main .over_name
+#messages .over_name
 {
 	margin-left: 100px;
 	margin-top: 0px;
@@ -58,13 +63,13 @@
 	color: white;
 }*/
 
-#main .div_dm
+#messages .div_dm
 {
 	border: 1px solid lightblue;
 	display: none;
 }
 
-#main .dm_list
+#messages .div_dm .getDm_list, .sentDm_list
 {
 	list-style-type: none;
 	margin: 10px 10px;
@@ -74,37 +79,87 @@
 	display: none;
 }
 
-#main .dm_list li
+#messages .getDm_list li, .sentDm_list li
 {
-	margin: 5px 5px;
+	margin: 10px 10px;
 }
 
-#main .dm_list .dm_date
+#messages .div_dm .getDm_list .dm_date
 {
 	text-align: right;
 	color: gray;
 	font-size: 15px;
 }
 
-#main .dm_list .dm_delete
+#messages .div_dm .getDm_list img
+{
+	float: left;
+	margin: 10px 10px;
+}
+
+#messages .div_dm .sentDm_list .dm_date
+{
+	text-align: left;
+	color: gray;
+	font-size: 15px;
+}
+
+#messages .div_dm .sentDm_list img
+{
+	float: right;
+	margin: 10px 10px;
+}
+
+#messages .div_dm .getDm_list .dm_delete
 {
 	text-align: right;
 }
 
-#main .dm_list .dm_delete a 
+#messages .div_dm .sentDm_list .dm_delete
+{
+	text-align: left
+}
+
+#messages .div_dm .getDm_list .dm_delete a , .div_dm .sentDm_list .dm_delete a
 {
 	text-decoration: none;
 }
 
-#main .dm_list .dm_delete a:link, .dm_list .dm_delete a:visited
+#messages .div_dm .getDm_list .dm_delete a:link, .div_dm .getDm_list .dm_delete a:visited, .div_dm .sentDm_list .dm_delete a:link, .div_dm .sentDm_list .dm_delete a:visited
 {
 	color: gray;
 	font-size: 11px;
 }
 
-#main .dm_list .dm_delete a:hover
+#messages .div_dm .getDm_list .dm_delete a:hover, .div_dm .sentDm_list .dm_delete a:hover
 {
 	font-weight: bold;
 }
+
+#messages .div_dm .page
+{
+	text-align: center;
+	margin: 10px 10px;
+}
+#messages .div_dm .page .page_button
+{
+	color: lightblue;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 0px 30px;
+}
+
+
+#messages #empty
+{
+	display: block;
+	color: lightblue;
+	font-size: 20px;
+	font-weight: bold; 
+	text-align: center;
+	
+}
+
+
 
 
