@@ -1,62 +1,99 @@
 #content
-	{
-		width: 620px;
-		margin: 10px 0;
-	}
+{
+	width: 620px;
+	margin: 10px 0;
+}
 	
-	#content_char
-	{
-		font-size: 20px;
-		color: lightblue;
-	}
+#content_char
+{
+	font-size: 20px;
+	color: lightblue;
+}
+
+#content_length
+{
+	float: right;
+	font-size: 20px;
+	color: gray;
+}
+
+#content_text
+{
+	width: 615px;							/*testTime.jsp의 크기와 같은 600px로 지정했으나, 크기가 다르게 출력됨.*/
+	line-height: 25px;
+	font-size: 15px;
+	overflow-y: hidden;					/*스크롤바 보이지 않게 함 but 글자 수 제한해야함*/
+												/*글자 수 제한은 버튼을 클릭할 수 없게 함.*/
+	border: 1px solid lightblue;
+}
+
+#button_able
+{
+	float: right;
+	background: lightblue;
+	padding: 5px 20px;
+	margin: 10px 0 ;
+	color: white;
+	font-weight: bold;	
+}
 	
-	#content_length
-	{
-		float: right;
-		font-size: 20px;
-		color: gray;
-	}
+#button_able a:link
+{
+	text-decoration: none;
+	color: white;
+	font-weight: bold;		
+}
+
+#button_able a:visited
+{
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+}
+
+#button_enable
+{
+	float: right;
+	background: gray;
+	padding: 5px 20px;
+	margin: 10px 0 ;
+	color: white;
+	font-weight: bold;	
+}
 	
-	#content_text
+	
+/**************              고협 추가!!                    **************/
+/************** 지도관련 css 2개와 상위 하나!!!  **************/
+	#content_map
 	{
 		width: 615px;							/*testTime.jsp의 크기와 같은 600px로 지정했으나, 크기가 다르게 출력됨.*/
+	}
+	
+	#top_msg
+	{
+		display: block;
+		margin: 10px 0px;
+		margin-bottom: 10px;
+	}
+		
+	#map
+	{
+		width: 615px;							/*testTime.jsp의 크기와 같은 600px로 지정했으나, 크기가 다르게 출력됨.*/
+		height: 300px;
 		line-height: 25px;
-		font-size: 15px;
-		overflow-y: hidden;					/*스크롤바 보이지 않게 함 but 글자 수 제한해야함*/
-													/*글자 수 제한은 버튼을 클릭할 수 없게 함.*/
 		border: 1px solid lightblue;
 	}
 	
-	#button_able
+	#search_add
 	{
-		float: right;
+		height: 25px;
+	}
+	
+	#map_able
+	{
 		background: lightblue;
 		padding: 5px 20px;
-		margin: 10px 0 ;
-		color: white;
-		font-weight: bold;	
-	}
-		
-	#button_able a:link
-	{
-		text-decoration: none;
-		color: white;
-		font-weight: bold;		
-	}
-	
-	#button_able a:visited
-	{
-		text-decoration: none;
+		margin: 10px 0px;
 		color: white;
 		font-weight: bold;
-	}
-	
-	#button_enable
-	{
-		float: right;
-		background: gray;
-		padding: 5px 20px;
-		margin: 10px 0 ;
-		color: white;
-		font-weight: bold;	
 	}

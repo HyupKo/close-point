@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+div
+{
+	text-align: center;
+	width: 500px;
+	height: 100px;
+}
+
+div p
+{
+	color: lightblue;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+div #button a
+{
+	text-decoration: none;
+}
+
+div #button a:link, #button a:visited
+{
+	color: white;
+	padding: 10px 20px;
+	background: lightblue;
+	font-size: 20px;
+	font-weight: bold;
+}

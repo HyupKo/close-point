@@ -1,0 +1,124 @@
+@CHARSET "UTF-8";
+
+#main 
+{
+	width: 815px;
+}
+#main #followerList
+{
+	width: 600px;
+	border: 1px solid lightblue;
+	padding: 50px 10px;
+}
+
+#main #followerList #choice
+{
+	width: 600px;
+	margin: 20px 10px;
+	text-align: center;
+}
+
+#main #followerList #choice .follow
+{
+	font-size: 20px;
+	font-weight: bold;
+	padding: 5px 10px;
+	margin: 0px 20px;
+	background: lightblue;
+	color: white;	
+}
+
+#main #followerList #friends, #followerList #followers
+{
+	width: 580px;
+	margin: 0px 10px;
+	display: none;
+}
+
+#main #followerList #friends .text, #followers .text
+{
+	color: gray;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#main #followerList ul
+{
+	list-style-type: none;
+	min-height: 50px;
+	margin-top: 10px;
+	padding: 5px 10px;
+	border: 1px solid lightblue;
+}
+
+#main #followerList ul li
+{
+	margin: 10px 70px;
+}
+
+#main #followerList ul img
+{
+	float: left;
+	margin-left: 0px;
+}
+
+#main #followerList .screenName a
+{
+	text-decoration: none;
+}
+
+#main #followerList .screenName a:link, .screenName a:visited
+{
+	color: lightblue;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#main #followerList .screenName a:hover
+{
+	font-size: 22px;
+}
+
+#main #followerList .userName 
+{
+	margin-left: 20px;
+	color: lightblue;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+#main #followerList .isFollow
+{
+	float: right;
+	color: lightblue;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#main #followerList .userText
+{
+	color: gray;
+	font-size: 15px;
+}
+
+#main #followerList #friends #friends_footer, #followerList #followers #followers_footer
+{
+	text-align: center;
+}
+
+#main #followerList #friends #friends_footer .page_button, #followerList #followers #followers_footer .page_button
+{
+	color: lightblue;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 10px 20px;
+}
+
+#main #followerList #friends #friends_footer .dis_button, #followerList #followers #followers_footer .dis_button
+{
+	color: gray;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 10px 20px;
+}
+

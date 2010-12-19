@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+div
+{
+	width: 300px;
+	height: 100px;
+	background: lightblue;
+}
+
+div p
+{
+	color: white;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+div span
+{
+	padding: 5px 20px;
+	background: white;
+}
+
+div span a
+{
+	text-decoration: none;
+}
+
+div span a:link, div span a:visited, div span a:hover
+{
+	color: lightblue;
+	font-size: 15px;
+	font-weight: bold;
+}

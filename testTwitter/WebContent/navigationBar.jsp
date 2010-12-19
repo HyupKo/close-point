@@ -2,8 +2,10 @@
     pageEncoding="UTF-8"%>
 
 	<div id="menu_bar">
-		<span><a href="timeLine.jsp">home</a></span>
-		<span><a href="profile.jsp">profile</a></span>
-		<span><a href="testPage.jsp">follow</a></span>
-		<span><a href="directMessage.jsp">message</a></span>
+		<span><a href="http://117.17.142.131:8080/testTwitter/user/loginHome.jsp">Home</a></span>
+		<span><a href="http://117.17.142.131:8080/testTwitter/timeLine.jsp">Timeline</a></span>
+		<span><a href="http://117.17.142.131:8080/testTwitter/profile.jsp">Profile</a></span>
+		<span><a href="http://117.17.142.131:8080/testTwitter/followerList.jsp">Follow</a></span>
+		<span><a href="http://117.17.142.131:8080/testTwitter/directMessage.jsp">Message</a></span>
+	<!--<span><a href="test.jsp">test</a></span>-->
 	</div>

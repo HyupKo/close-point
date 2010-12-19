@@ -1,0 +1,77 @@
+@CHARSET "UTF-8";
+
+#main
+{
+	width: 300px;
+	height: 90px;	/*사이즈 이상함 */
+	background: lightblue;
+	padding: 20px 20px;
+}
+
+#main a
+{
+	text-decoration: none;
+}
+
+#main #login, #main #join
+{
+	display: block;
+	width: 290px;
+	height: 30px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 20px;
+	font-weight: bold;
+	color: lightblue;
+	background: white;
+}
+
+#main #login
+{
+	margin-bottom: 25px;
+}
+
+#main_login
+{
+	display: none;
+	list-style-type: none;
+	width: 300px;
+	height: 120px;
+	padding: 10px 10px;
+	border: 1px solid lightblue;
+}
+
+#main_login li
+{
+	margin: 10px 10px;
+	height: 25px;
+}
+
+#main_login label
+{
+	float: left;
+	width: 95px;
+	height: 22px;
+	color: lightblue;
+	font-weight: bold;
+}
+
+#main_login #li_last
+{
+	text-align: center;
+	margin-top: 15px;
+}
+
+#main_login #li_last #submit, #main_login #li_last #back
+{
+	padding: 5px 10px;
+	margin: 10px 20px;
+	vertical-align: middle;
+	background: lightblue;
+	color: white;
+	font-weight: bold;
+}
+
+
+
+
