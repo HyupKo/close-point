@@ -147,6 +147,7 @@
 		List<Status> list = home_instance.HomeTimeLine();
 			
 		System.out.println("list size: "+list.size());
+		
 		for( Status status :  list )
 		{
 			String user = status.getUser().getScreenName();
